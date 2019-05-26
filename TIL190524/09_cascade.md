@@ -62,8 +62,8 @@ public class JpaRunner implements ApplicationRunner {
 > 여러번 적용해서 마지막에 데이터가 1차캐시의 객체 값과 같다면 데이터를 변경하지 않는다  
 ```java
 Account junjang = session.load(Account.class, account.getId());
-junjang.setUsername("sukjin");
-junjang.setUsername("yongrak");
+junjang.setUsername("kimjunhyeung");
+junjang.setUsername("junhyeung");
 junjang.setUsername("junjang");
 System.out.println("=====================");
 System.out.println(junjang.getUsername());
@@ -151,10 +151,6 @@ public void addComment(Comment comment) {
 ```java
 @OneToMany(mappedBy = "post", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 private Set<Comment> comments = new HashSet<>();
-public void addComment(Comment comment) {
-    this.getComments().add(comment);
-    comment.setPost(this);
-}
 ```
 
 #### Post 삭제 테스트
