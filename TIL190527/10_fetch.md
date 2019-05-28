@@ -9,7 +9,7 @@
 
 ### Eager 테스트
 > EAGER가 적용된 Entity 정보를 미리 다 가져와서 불필요한 조회를 더이상 하지 않음  
-#### Account 클래스의 studies에 EAGER 를 적용
+#### Post 클래스의 comments에 EAGER 를 적용
 ```java
 @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 private Set<Study> studies = new HashSet<>();
@@ -25,10 +25,10 @@ System.out.println(post.getTitle());
 
 ### Lazy
 > Lazy가 적용된 Entity 정보를 미리 가져 오지 않음  
-#### Account 클래스의 studies에 LAZY를 적용
+#### Post 클래스의 comments LAZY를 적용
 ```java
-@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-private Set<Study> studies = new HashSet<>();
+@OneToMany(mappedBy = "post", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+private Set<Comment> comments = new HashSet<>();
 ```
 
 ### n+1 테스트
