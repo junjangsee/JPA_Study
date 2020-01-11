@@ -116,6 +116,3 @@ public String getPost(@PathVariable("id") Post post) {
     return post.getTitle();
 }
 ```
-×
-Drag and Drop
-The image will be downloaded
