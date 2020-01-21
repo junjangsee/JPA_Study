@@ -71,7 +71,7 @@ public class PostRepositoryTest {
 
     // 이런식으로 파라메터로 전달한 인스턴스를 사용하면 persist 상태가 아니므로 상태변화를 감지 안함
     // 그래서 그냥 Hibernate 임 updatedPost를 사용해야 제대로 감지함
-    postUpdate.setTitle("ironman");
+    postUpdate.setTitle("junjang");
 
     List<Post> all = postRepository.findAll();
     assertThat(all.size()).isEqualTo(1);
